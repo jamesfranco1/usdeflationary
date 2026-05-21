@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%232775ca'/%3E%3Ctext x='8' y='12' font-size='10' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'%3E%24%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="coin.png">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -16,7 +16,7 @@
 <div class="app">
     <!-- ===== HEADER ===== -->
     <div class="header">
-        <div class="header-icon">$</div>
+        <div class="header-icon"><img src="coin.png" alt=""></div>
         <div class="header-title">UNITED STATES DEFLATIONARY COIN</div>
         <div class="header-wallet" id="liveBadge">
             <span class="status-dot" id="statusDot"></span>
@@ -41,8 +41,7 @@
                 <div class="hero-value" id="totalClaimed">$0.00</div>
                 <div class="hero-sub" id="totalClaimedRaw">0 USDC RAW</div>
                 <div class="vault-art">
-                    <!-- Drop coin.png (or coin.gif) in this folder to replace the artwork. -->
-                    <img src="coin.png" alt="" class="vault-img" onerror="this.src='coin.svg'; this.onerror=null;">
+                    <img src="coin.png" alt="" class="vault-img">
                 </div>
             </div>
 

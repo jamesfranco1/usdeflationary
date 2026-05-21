@@ -94,17 +94,19 @@ body::after {
 }
 
 .header-icon {
-    width: 42px;
-    height: 42px;
-    border: var(--border-w) solid var(--white);
-    background: var(--bg-deep);
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--pixel);
-    font-size: 14px;
-    color: var(--white);
     flex-shrink: 0;
+}
+.header-icon img {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    image-rendering: crisp-edges;
+    object-fit: contain;
 }
 
 .header-title {
@@ -238,16 +240,17 @@ body::after {
     letter-spacing: 1px;
 }
 
-/* ===== PIXEL COIN ===== */
+/* ===== CENTER LOGO ===== */
 .vault-art {
     display: flex;
     justify-content: center;
-    margin-top: 6px;
+    margin-top: 10px;
 }
 .vault-img {
-    width: 96px;
-    height: 96px;
+    width: 128px;
+    height: 128px;
     image-rendering: pixelated;
+    image-rendering: crisp-edges;
     object-fit: contain;
     display: block;
 }
@@ -504,5 +507,6 @@ body::after {
     .entry { grid-template-columns: 1fr; gap: 6px; }
     .entry-time, .entry-status { padding-top: 0; }
     .info-block { padding: 18px; font-size: 18px; }
-    .vault-img { width: 80px; height: 80px; }
+    .vault-img { width: 96px; height: 96px; }
+    .header-icon { width: 32px; height: 32px; }
 }
