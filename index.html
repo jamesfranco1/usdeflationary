@@ -18,7 +18,6 @@
     <div class="header">
         <div class="header-icon">$</div>
         <div class="header-title">UNITED STATES DEFLATIONARY COIN</div>
-        <div class="header-spacer"></div>
         <div class="header-wallet" id="liveBadge">
             <span class="status-dot" id="statusDot"></span>
             <span id="liveText">CONNECTING...</span>
@@ -30,61 +29,21 @@
         <button class="tab active" data-pane="stats" onclick="switchTab('stats')">STATS</button>
         <button class="tab" data-pane="info" onclick="switchTab('info')">HOW DOES IT WORK</button>
         <div class="tabs-spacer"></div>
-        <a class="tab tab-link" id="buyPumpBtn" href="#" target="_blank" rel="noopener">BUY ON PUMP &gt;</a>
+        <a class="tab tab-buy" id="buyPumpBtn" href="#" target="_blank" rel="noopener">BUY ON PUMP &gt;</a>
     </div>
 
     <!-- ===== PANEL ===== -->
     <div class="panel">
         <!-- ===== STATS PANE ===== -->
         <div id="pane-stats" class="pane active">
-            <div class="hero-stat">
+            <div class="hero-card">
                 <div class="hero-label">TOTAL USDC BURNED</div>
                 <div class="hero-value" id="totalClaimed">$0.00</div>
                 <div class="hero-sub" id="totalClaimedRaw">0 USDC RAW</div>
-            </div>
-
-            <div class="vault-art">
-                <!-- 8-bit pixel USDC coin (same as the Electron app) -->
-                <svg width="96" height="96" viewBox="0 0 21 21" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="7" y="1" width="7" height="1" fill="#ffffff"/>
-                    <rect x="5" y="2" width="2" height="1" fill="#ffffff"/>
-                    <rect x="14" y="2" width="2" height="1" fill="#ffffff"/>
-                    <rect x="3" y="3" width="2" height="1" fill="#ffffff"/>
-                    <rect x="16" y="3" width="2" height="1" fill="#ffffff"/>
-                    <rect x="2" y="4" width="1" height="2" fill="#ffffff"/>
-                    <rect x="18" y="4" width="1" height="2" fill="#ffffff"/>
-                    <rect x="1" y="6" width="1" height="9" fill="#ffffff"/>
-                    <rect x="19" y="6" width="1" height="9" fill="#ffffff"/>
-                    <rect x="2" y="15" width="1" height="2" fill="#ffffff"/>
-                    <rect x="18" y="15" width="1" height="2" fill="#ffffff"/>
-                    <rect x="3" y="17" width="2" height="1" fill="#ffffff"/>
-                    <rect x="16" y="17" width="2" height="1" fill="#ffffff"/>
-                    <rect x="5" y="18" width="2" height="1" fill="#ffffff"/>
-                    <rect x="14" y="18" width="2" height="1" fill="#ffffff"/>
-                    <rect x="7" y="19" width="7" height="1" fill="#ffffff"/>
-                    <rect x="5" y="3" width="11" height="15" fill="#2775ca"/>
-                    <rect x="3" y="4" width="2" height="13" fill="#2775ca"/>
-                    <rect x="16" y="4" width="2" height="13" fill="#2775ca"/>
-                    <rect x="7" y="2" width="7" height="1" fill="#2775ca"/>
-                    <rect x="7" y="18" width="7" height="1" fill="#2775ca"/>
-                    <rect x="5" y="2" width="2" height="1" fill="#2775ca"/>
-                    <rect x="14" y="2" width="2" height="1" fill="#2775ca"/>
-                    <rect x="2" y="6" width="1" height="9" fill="#2775ca"/>
-                    <rect x="18" y="6" width="1" height="9" fill="#2775ca"/>
-                    <rect x="10" y="5" width="1" height="1" fill="#ffffff"/>
-                    <rect x="8" y="6" width="5" height="1" fill="#ffffff"/>
-                    <rect x="7" y="7" width="1" height="1" fill="#ffffff"/>
-                    <rect x="10" y="7" width="1" height="1" fill="#ffffff"/>
-                    <rect x="7" y="8" width="1" height="1" fill="#ffffff"/>
-                    <rect x="10" y="8" width="1" height="1" fill="#ffffff"/>
-                    <rect x="8" y="9" width="3" height="1" fill="#ffffff"/>
-                    <rect x="10" y="10" width="1" height="1" fill="#ffffff"/>
-                    <rect x="13" y="10" width="1" height="1" fill="#ffffff"/>
-                    <rect x="10" y="11" width="1" height="1" fill="#ffffff"/>
-                    <rect x="13" y="11" width="1" height="1" fill="#ffffff"/>
-                    <rect x="8" y="12" width="5" height="1" fill="#ffffff"/>
-                    <rect x="10" y="13" width="1" height="1" fill="#ffffff"/>
-                </svg>
+                <div class="vault-art">
+                    <!-- Drop coin.png (or coin.gif) in this folder to replace the artwork. -->
+                    <img src="coin.png" alt="" class="vault-img" onerror="this.src='coin.svg'; this.onerror=null;">
+                </div>
             </div>
 
             <div class="stat-row">
@@ -155,7 +114,6 @@
 
     <div class="footer">
         <span class="footer-text" id="footerWallet">CREATOR: --</span>
-        <span class="footer-text">USDEF v1 &middot; PIXEL TERMINAL</span>
     </div>
 </div>
 
