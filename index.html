@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UNITED STATES DEFLATIONARY COIN</title>
+<meta name="description" content="A permanent deflationary loop for a USDC-paired pump.fun coin. Creator fees are claimed, immediately spent buying back the chart, and burned forever.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%232775ca'/%3E%3Ctext x='8' y='12' font-size='10' fill='white' text-anchor='middle' font-family='monospace' font-weight='bold'%3E%24%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="app">
+    <!-- ===== HEADER ===== -->
+    <div class="header">
+        <div class="header-icon">$</div>
+        <div class="header-title">UNITED STATES DEFLATIONARY COIN</div>
+        <div class="header-spacer"></div>
+        <div class="header-wallet" id="liveBadge">
+            <span class="status-dot" id="statusDot"></span>
+            <span id="liveText">CONNECTING...</span>
+        </div>
+    </div>
+
+    <!-- ===== TABS ===== -->
+    <div class="tabs">
+        <button class="tab active" data-pane="stats" onclick="switchTab('stats')">STATS</button>
+        <button class="tab" data-pane="info" onclick="switchTab('info')">HOW DOES IT WORK</button>
+        <div class="tabs-spacer"></div>
+        <a class="tab tab-link" id="buyPumpBtn" href="#" target="_blank" rel="noopener">BUY ON PUMP &gt;</a>
+    </div>
+
+    <!-- ===== PANEL ===== -->
+    <div class="panel">
+        <!-- ===== STATS PANE ===== -->
+        <div id="pane-stats" class="pane active">
+            <div class="hero-stat">
+                <div class="hero-label">TOTAL USDC BURNED</div>
+                <div class="hero-value" id="totalClaimed">$0.00</div>
+                <div class="hero-sub" id="totalClaimedRaw">0 USDC RAW</div>
+            </div>
+
+            <div class="vault-art">
+                <!-- 8-bit pixel USDC coin (same as the Electron app) -->
+                <svg width="96" height="96" viewBox="0 0 21 21" shape-rendering="crispEdges" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="7" y="1" width="7" height="1" fill="#ffffff"/>
+                    <rect x="5" y="2" width="2" height="1" fill="#ffffff"/>
+                    <rect x="14" y="2" width="2" height="1" fill="#ffffff"/>
+                    <rect x="3" y="3" width="2" height="1" fill="#ffffff"/>
+                    <rect x="16" y="3" width="2" height="1" fill="#ffffff"/>
+                    <rect x="2" y="4" width="1" height="2" fill="#ffffff"/>
+                    <rect x="18" y="4" width="1" height="2" fill="#ffffff"/>
+                    <rect x="1" y="6" width="1" height="9" fill="#ffffff"/>
+                    <rect x="19" y="6" width="1" height="9" fill="#ffffff"/>
+                    <rect x="2" y="15" width="1" height="2" fill="#ffffff"/>
+                    <rect x="18" y="15" width="1" height="2" fill="#ffffff"/>
+                    <rect x="3" y="17" width="2" height="1" fill="#ffffff"/>
+                    <rect x="16" y="17" width="2" height="1" fill="#ffffff"/>
+                    <rect x="5" y="18" width="2" height="1" fill="#ffffff"/>
+                    <rect x="14" y="18" width="2" height="1" fill="#ffffff"/>
+                    <rect x="7" y="19" width="7" height="1" fill="#ffffff"/>
+                    <rect x="5" y="3" width="11" height="15" fill="#2775ca"/>
+                    <rect x="3" y="4" width="2" height="13" fill="#2775ca"/>
+                    <rect x="16" y="4" width="2" height="13" fill="#2775ca"/>
+                    <rect x="7" y="2" width="7" height="1" fill="#2775ca"/>
+                    <rect x="7" y="18" width="7" height="1" fill="#2775ca"/>
+                    <rect x="5" y="2" width="2" height="1" fill="#2775ca"/>
+                    <rect x="14" y="2" width="2" height="1" fill="#2775ca"/>
+                    <rect x="2" y="6" width="1" height="9" fill="#2775ca"/>
+                    <rect x="18" y="6" width="1" height="9" fill="#2775ca"/>
+                    <rect x="10" y="5" width="1" height="1" fill="#ffffff"/>
+                    <rect x="8" y="6" width="5" height="1" fill="#ffffff"/>
+                    <rect x="7" y="7" width="1" height="1" fill="#ffffff"/>
+                    <rect x="10" y="7" width="1" height="1" fill="#ffffff"/>
+                    <rect x="7" y="8" width="1" height="1" fill="#ffffff"/>
+                    <rect x="10" y="8" width="1" height="1" fill="#ffffff"/>
+                    <rect x="8" y="9" width="3" height="1" fill="#ffffff"/>
+                    <rect x="10" y="10" width="1" height="1" fill="#ffffff"/>
+                    <rect x="13" y="10" width="1" height="1" fill="#ffffff"/>
+                    <rect x="10" y="11" width="1" height="1" fill="#ffffff"/>
+                    <rect x="13" y="11" width="1" height="1" fill="#ffffff"/>
+                    <rect x="8" y="12" width="5" height="1" fill="#ffffff"/>
+                    <rect x="10" y="13" width="1" height="1" fill="#ffffff"/>
+                </svg>
+            </div>
+
+            <div class="stat-row">
+                <div class="stat">
+                    <div class="stat-label">CYCLES</div>
+                    <div class="stat-value" id="totalCycles">0</div>
+                    <div class="stat-sub" id="totalSuccessful">0 SUCCESSFUL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">TOKENS BURNED</div>
+                    <div class="stat-value" id="totalBurned">0</div>
+                    <div class="stat-sub">REMOVED FOREVER</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-label">LAST CYCLE</div>
+                    <div class="stat-value" id="lastTickValue">--:--:--</div>
+                    <div class="stat-sub" id="lastTickStatus">WAITING</div>
+                </div>
+            </div>
+
+            <div class="mint-row" id="mintRow" style="display:none;">
+                <div class="mint-label">MINT</div>
+                <div class="mint-value" id="mintValue">--</div>
+                <a class="btn btn-mini" id="solscanMintLink" href="#" target="_blank" rel="noopener">SOLSCAN &gt;</a>
+                <button class="btn btn-mini" onclick="copyMint()">COPY</button>
+            </div>
+
+            <div class="feed-section">
+                <div class="feed-header">
+                    <div class="feed-title">RECENT BURNS</div>
+                    <div class="feed-meta" id="lastTickInfo"></div>
+                </div>
+                <div class="feed" id="feed">
+                    <div class="empty">&gt; CONNECTING TO FEED...</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== INFO PANE ===== -->
+        <div id="pane-info" class="pane">
+            <div class="info-block">
+                <h3>WHAT IS THIS?</h3>
+                <p>UNITED STATES DEFLATIONARY COIN is a permanent, automatic deflationary loop for a USDC-paired pump.fun coin. Every 30 seconds the creator wallet runs three transactions back-to-back:</p>
+
+                <ol>
+                    <li><span class="tag claim">CLAIM</span> sweeps accrued USDC creator fees out of the bonding-curve creator vault into the wallet via <code>collect_creator_fee_v2</code>.</li>
+                    <li><span class="tag buy">BUY</span> spends exactly the amount just claimed back into the chart via <code>buy_exact_quote_in_v2</code> &mdash; no SOL is needed, the USDC funds the buy directly.</li>
+                    <li><span class="tag burn">BURN</span> destroys the bought tokens permanently via the SPL Token-2022 burn instruction.</li>
+                </ol>
+
+                <h3>WHY USDC?</h3>
+                <p>Because fees arrive as USDC, the buy can spend them directly. No inline SOL&rarr;USDC swap, no slippage on the funding leg, no Raydium CLMM dependency. The whole loop is cheaper, smaller, and faster.</p>
+
+                <h3>WHAT THE LOOP GUARANTEES</h3>
+                <p>Every fee dollar earned by the bonding curve is immediately spent buying the coin back, and every token bought back is burned. The wallet never accumulates the coin. The supply only goes one way: down.</p>
+
+                <h3>WHO RUNS IT?</h3>
+                <p>The creator wallet runs the loop autonomously every 30 seconds. The only on-chain instruction with permissions is <code>collect_creator_fee_v2</code> which is permissionless &mdash; anyone could trigger the claim &mdash; but the buy and burn legs must originate from the creator wallet.</p>
+
+                <h3>TRUSTLESSNESS</h3>
+                <p>Every transaction is recorded on-chain and shown in the RECENT BURNS feed with a Solscan link. Total claimed and total burned are derived from the cycle log live &mdash; if the loop is paused, the numbers stop moving. If the wallet were to claim and not burn, the burn signature would be missing from the entry.</p>
+
+                <h3>SCOPE</h3>
+                <p>Single-creator USDC-paired bonding curve only. Graduated coins, shared-creator (sharing config) coins, and SOL-paired coins are out of scope for this loop.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <span class="footer-text" id="footerWallet">CREATOR: --</span>
+        <span class="footer-text">USDEF v1 &middot; PIXEL TERMINAL</span>
+    </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
