@@ -2,7 +2,7 @@
 // Edit these values before deploying. No build step required.
 window.USDEF_CONFIG = {
     // Mint of the USDC-paired pump.fun coin this site tracks.
-    mint: '',
+    mint: 'ysoVufJJM4WcGATbJiFQyxKHuyPxBiuPfgSHL4Qusdc',
 
     // Public feed URL from the Electron app (set USDEF_PUBLIC_PORT in .env).
     // For local testing: 'http://localhost:7891'
